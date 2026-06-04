@@ -1,0 +1,22 @@
+
+graph TB
+    Browser["React SPA<br/>Dashboard · Configurator · Quote · Recipes"]
+    Railway["Railway Service sf-run-48133f03<br/>Node.js + Express + TypeScript"]
+    BOM["BOM Engine<br/>5 Family Expanders"]
+    API["REST API<br/>/api/families · /api/configure · /api/quote<br/>/api/recipes · /api/export"]
+    Supabase["Supabase<br/>PostgreSQL + Auth"]
+    DB["Tables: families · assemblies<br/>recipe_versions · quotes"]
+
+    Browser -->|HTTPS REST| Railway
+    Railway --> API
+    Railway --> BOM
+    BOM --> API
+    Railway -->|Postgres SDK| Supabase
+    Supabase --> DB
+
+    style Browser fill:#4F46E5,color:#fff
+    style Railway fill:#0F172A,color:#fff
+    style BOM fill:#065F46,color:#fff
+    style API fill:#1E40AF,color:#fff
+    style Supabase fill:#1A7F37,color:#fff
+    style DB fill:#166534,color:#fff
